@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity{
         // loads only for the first time.. !
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
        // if (!prefs.getBoolean("firstTime", false)) {
-            scheduleNotification(getNotification(" Please don't forget to pray at 9 "));
+            scheduleNotification(getNotification());
            // SharedPreferences.Editor editor = prefs.edit();
           //  editor.putBoolean("firstTime", true);
          //   editor.apply();
@@ -270,11 +270,11 @@ public class MainActivity extends AppCompatActivity{
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, futureInMillis,AlarmManager.INTERVAL_DAY,pendingIntent);
     }
 
-    public Notification getNotification(String content) {
+    public Notification getNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle(" Time to Pray");
         builder.setDefaults(Notification.DEFAULT_SOUND|Notification.DEFAULT_LIGHTS|Notification.DEFAULT_VIBRATE);
-        builder.setContentText(content);
+        builder.setContentText(" Please don't forget to pray at 9 ");
         builder.setSmallIcon(R.mipmap.ic_launcher);
         return builder.build();
     }
